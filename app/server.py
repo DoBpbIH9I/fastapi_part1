@@ -74,7 +74,7 @@ async def get_advertisement(session: SessionDependency,
                             title: str = Query(None),
                             description: str = Query(None),
                             price: int = Query(None),
-                            author: int = Query(None)):
+                            author: str = Query(None)):
     search_params = {}
     if title:
         search_params["title"] = title
