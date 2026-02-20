@@ -26,7 +26,7 @@ class Advertisement(Base):
     title: Mapped[str] = mapped_column(String(200), nullable=False)
     description: Mapped[str] = mapped_column(String(1000), nullable=False)
     price: Mapped[int] = mapped_column(Integer, nullable=False)
-    author: Mapped[int] = mapped_column(Integer, nullable=False)
+    author: Mapped[str] = mapped_column(String(200), nullable=False)
     created_at: Mapped[datetime.datetime] = mapped_column(DateTime(timezone=True), server_default=func.now())
 
     @property

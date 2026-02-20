@@ -17,7 +17,7 @@ class GetAdsResponse(BaseModel):
     title: str
     description: str
     price: int
-    author: int
+    author: str
     created_at: datetime.datetime
 
 
@@ -25,7 +25,7 @@ class CreateAdsRequest(BaseModel):
     title: str
     description: str
     price: int
-    author: int
+    author: str
 
 
 class CreateAdsResponse(IdResponseBase):

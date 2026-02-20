@@ -1,5 +1,5 @@
 from fastapi import HTTPException
-from models import ORM_CLS, ORM_OBJ
+from app.models import ORM_CLS, ORM_OBJ
 from sqlalchemy.exc import IntegrityError
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import select
@@ -23,7 +23,7 @@ async def get_item_by_id(
 
 
 async def get_items_by_params(session: AsyncSession, orm_cls: ORM_CLS, **kwargs):
-    query = select(orm_cls).filter_by(**kwargs).order_by(orm_cls.created_at.desc())
+    query = select(orm_cls).filter(orm_cls.title.ilike(**kwargs)).order_by(orm_cls.created_at.desc())
     return await session.execute(query)
 
 

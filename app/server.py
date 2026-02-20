@@ -59,7 +59,7 @@ async def update_item(advertisement_id: int, item: UpdateAdsRequest, session: Se
 @app.delete("/advertisement/{advertisement_id}", response_model=DeleteAdsResponse, tags=["advertisements"])
 async def delete_item(advertisement_id: int, session: SessionDependency):
     ad = await crud.get_item_by_id(session, Advertisement, advertisement_id)
-    await crud.add_item(session, ad)
+    await crud.delete_item(session, ad)
     return STATUS_DELETED
 
 
